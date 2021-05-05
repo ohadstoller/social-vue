@@ -1,5 +1,7 @@
 import PostService from '@/services/PostService.js'
 
+export const namespaced = true;
+
 export const state = {
     posts: [],
     post: {}

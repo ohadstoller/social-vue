@@ -21,7 +21,7 @@ export default {
   computed: mapState(["post", "user"]),
 
   created() {
-    this.$store.dispatch("fetchPosts");
+    this.$store.dispatch("post/fetchPosts");
 
     PostService.getPosts2()
       .then((response) => {

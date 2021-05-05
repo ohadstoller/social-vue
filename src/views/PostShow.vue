@@ -17,7 +17,7 @@ export default {
   props: ["id"],
 
   created() {
-    this.$store.dispatch("fetchPost", this.id);
+    this.$store.dispatch("post/fetchPost", this.id);
   },
   computed: mapState({
     post: (state) => state.post.post,
