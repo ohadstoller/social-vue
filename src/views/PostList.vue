@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ user.user.name }}'s Wall</h1>
-    <PostCard v-for="post in posts" :key="post.id" :post="post" />
+    <PostCard v-for="post in post.posts" :key="post.id" :post="post" />
     <BaseIcon />
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     PostCard,
   },
 
-  computed: mapState(["posts", "user"]),
+  computed: mapState(["post", "user"]),
 
   created() {
     this.$store.dispatch("fetchPosts");
