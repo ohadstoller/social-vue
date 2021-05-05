@@ -1,11 +1,9 @@
 <template>
-
   <div>
-    <h1>The Wall</h1>
+    <h1>{{ user.user.name }}'s Wall</h1>
     <PostCard v-for="post in posts" :key="post.id" :post="post" />
     <BaseIcon />
   </div>
-
 </template>
 
 <script>
@@ -17,21 +15,21 @@ import PostService from "@/services/PostService";
 export default {
   components: {
     BaseIcon,
-    PostCard
+    PostCard,
   },
 
-  computed: mapState(["posts"]),
+  computed: mapState(["posts", "user"]),
 
   created() {
     this.$store.dispatch("fetchPosts");
 
-
-    PostService.getPosts2().then(response => {
+    PostService.getPosts2()
+      .then((response) => {
         console.log("get request from spring server: ", response.data);
-      }
-    ).catch(error => {
-      console.log("An error accured: ", error.response);
-    });
-  }
+      })
+      .catch((error) => {
+        console.log("An error accured: ", error.response);
+      });
+  },
 };
 </script>

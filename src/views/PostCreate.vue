@@ -1,15 +1,20 @@
 <template>
   <div>
-
     <form @submit.prevent="createPost">
       <label>Select a feeling</label>
       <select v-model="post.feeling">
-        <option v-for="feeling in feelings" :key="feeling">{{ feeling }}</option>
+        <option v-for="feeling in feelings" :key="feeling">
+          {{ feeling }}
+        </option>
       </select>
       <h3>Name & describe your post</h3>
       <div class="field">
         <label>Title</label>
-        <input v-model="post.title" type="text" placeholder="Add an post title" />
+        <input
+          v-model="post.title"
+          type="text"
+          placeholder="Add an post title"
+        />
       </div>
       <div class="field">
         <label>Description</label>
@@ -18,7 +23,11 @@
       <h3>Where is your post?</h3>
       <div class="field">
         <label>Location</label>
-        <input v-model="post.location" type="text" placeholder="Add a location" />
+        <input
+          v-model="post.location"
+          type="text"
+          placeholder="Add a location"
+        />
       </div>
       <h3>When is your post?</h3>
       <div class="field">
@@ -33,17 +42,12 @@
       </div>
       <input type="submit" class="button -fill-gradient" value="Submit" />
     </form>
-
-
   </div>
 </template>
 
 <script>
-
 export default {
-  components: {
-
-  },
+  components: {},
   data() {
     const times = [];
     for (let i = 1; i <= 24; i++) {
@@ -58,25 +62,24 @@ export default {
   },
   methods: {
     createPost() {
-      this.$store.dispatch("createPost", this.post).then(
-        () => {
+      this.$store
+        .dispatch("createPost", this.post)
+        .then(() => {
           this.$router.push({
             name: "post-show",
             params: {
-              id: this.post.id
-            }
+              id: this.post.id,
+            },
           });
           this.post = this.createFreshPostObject();
-        }
-      ).catch(() => {
+        })
+        .catch(() => {
           console.log("An error happened while creating a new post ");
-        }
-      );
-
+        });
     },
 
     createFreshPostObject() {
-      const user = this.$store.state.user;
+      const user = this.$store.state.user.user;
       const id = Math.floor(Math.random() * 10000000);
       return {
         id: id,
@@ -89,8 +92,8 @@ export default {
         // time: "",
         // attendees: []
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -98,5 +101,4 @@ export default {
 .field {
   margin-bottom: 24px;
 }
-
 </style>

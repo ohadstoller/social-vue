@@ -1,12 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import PostService from "@/services/PostService";
+import * as user from '@/store/modules/user.js'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: {
+    user
+  },
   state: {
-    user: { id: "abc123", name: "Ohad" },
     feelings: [
       "Happy",
       "Sad",
@@ -41,9 +44,9 @@ export default new Vuex.Store({
         }
       );
     },
-    fetchPost({commit, getters}, id) {
+    fetchPost({ commit, getters }, id) {
       let post = getters.getPostById(id)
-      if (post){
+      if (post) {
         commit('SET_POST', post)
       }
       else {
