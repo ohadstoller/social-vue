@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   props: ["id"],
@@ -22,6 +22,7 @@ export default {
   computed: mapState({
     post: (state) => state.post.post,
   }),
+  methods: mapActions("post", ["fetchPost"]),
 };
 </script>
 
