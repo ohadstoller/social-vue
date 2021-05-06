@@ -19,7 +19,7 @@ const apiClient2 = axios.create({
   }
 })
 
-export default  {
+export default {
   getPosts() {
     return apiClient.get('/posts')
   },
@@ -31,6 +31,13 @@ export default  {
   },
   postPost(post) {
     return apiClient.post('/posts', post)
+  },
+
+  postPost2(post) {
+    return apiClient2.post('/posts', post)
   }
+
+
+
 
 }

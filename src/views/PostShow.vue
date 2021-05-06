@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="post-card -shadow">
-      <h3 class="title">{{ post.title }}</h3>
-      <b class="title">Wrriten by {{ post.user.name }}</b> <span> </span>
+      <h4 class="title">{{ post.content }}</h4>
+      <b class="title">Wrriten by {{ post.name }}</b> <span> </span>
       <BaseIcon name="message-circle" width="14" height="14" />
       <span>{{ post.comments ? post.comments.length : 0 }} comments</span>
-      <div class="title">{{ post.content }}</div>
-
-      <!-- <div class="eyebrow">Time {{ post.time }} | Date {{ post.date }}</div> -->
+      <br />
+      <span class="dateTime">{{ post.dateTime }}</span>
     </div>
   </div>
 </template>
@@ -39,6 +38,10 @@ export default {
 
 .post-header > .title {
   margin: 0;
+}
+
+.dateTime {
+  font-size: 12px;
 }
 
 .list-group {

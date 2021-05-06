@@ -4,10 +4,13 @@
     :to="{ name: 'post-show', params: { id: post.id } }"
   >
     <div class="post-card -shadow">
-      <h4 class="title">{{ post.title }}</h4>
-      <!--      <div class="eyebrow"> Time {{ post.time }} | Date {{ post.date }}</div>-->
+      <h4 class="title">{{ post.content }}</h4>
+      Written by {{ post.name }} | Feeling {{ post.feeling.toLowerCase() }}
+      <br />
       <BaseIcon name="message-circle" width="14" height="14" />
       <span>{{ post.comments ? post.comments.length : 0 }} comments</span>
+      <br />
+      <span class="dateTime">{{ post.dateTime }}</span>
     </div>
   </router-link>
 </template>
@@ -26,6 +29,10 @@ export default {
   margin-bottom: 24px;
   transition: all 0.2s linear;
   cursor: pointer;
+}
+
+.dateTime {
+  font-size: 12px;
 }
 
 .post-card:hover {

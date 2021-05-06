@@ -22,12 +22,22 @@ export const mutations = {
 export const actions = {
 
     fetchPosts({ commit }) {
-        PostService.getPosts().then(response => commit("SET_POSTS", response.data));
+        PostService.getPosts2().then(response =>
+            commit("SET_POSTS", response.data));
     },
 
     createPost({ commit }, post) {
         return PostService.postPost(post).then(
             () => {
+                console.log("added new post: ", post);
+                commit("ADD_POST", post);
+            }
+        );
+    },
+    createPost2({ commit }, post) {
+        return PostService.postPost2(post).then(
+            (response) => {
+                console.log("New req data: ", response.data);
                 console.log("added new post: ", post);
                 commit("ADD_POST", post);
             }

@@ -13,9 +13,12 @@ export default new Vuex.Store({
   },
   state: {
     feelings: [
-      "Happy",
-      "Sad",
-      "Hopeful"
+      "HAPPY",
+      "SAD",
+      "MOTIVATED",
+      "HOPEFUL",
+      "EXCITED",
+      "SICK"
     ],
   }
 });

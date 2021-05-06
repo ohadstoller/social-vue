@@ -7,15 +7,15 @@
           {{ feeling }}
         </option>
       </select>
-      <h3>Name & describe your post</h3>
+      <!-- <h3>Name & describe your post</h3>
       <div class="field">
         <label>Title</label>
         <input
-          v-model="post.title"
+          v-model="post.content"
           type="text"
           placeholder="Add an post title"
         />
-      </div>
+      </div> -->
       <div class="field">
         <label>Description</label>
         <input v-model="post.content" type="text" placeholder="Add a content" />
@@ -35,30 +35,32 @@ export default {
   },
   methods: {
     createPost() {
+      console.log("dispatching a post, ", this.post);
       this.$store
-        .dispatch("post/createPost", this.post)
+        .dispatch("post/createPost2", this.post)
         .then(() => {
           this.$router.push({
             name: "post-show",
             params: {
-              id: this.post.id,
+              id: this.$store.state.post.post.id,
             },
           });
+
           this.post = this.createFreshPostObject();
         })
-        .catch(() => {
-          console.log("An error happened while creating a new post ");
+        .catch((error) => {
+          console.log("An error happened while creating a new post ", error);
         });
     },
 
     createFreshPostObject() {
       const user = this.$store.state.user.user;
-      const id = Math.floor(Math.random() * 10000000);
+
       return {
-        id: id,
         feeling: "",
-        user: user,
-        title: "",
+        name: user.name,
+        email: user.name,
+        dateTime: Date(Date.now()).toString(),
         content: "",
       };
     },
