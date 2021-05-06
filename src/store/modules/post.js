@@ -26,7 +26,7 @@ export const mutations = {
 export const actions = {
 
     fetchPosts({ commit }) {
-        PostService.getPosts2().then(response =>
+        PostService.getPosts().then(response =>
             commit("SET_POSTS", response.data));
     },
 
@@ -39,7 +39,7 @@ export const actions = {
         );
     },
     createPost2({ commit }, post) {
-        return PostService.postPost2(post).then(
+        return PostService.postPost(post).then(
             (response) => {
                 console.log("New req data: ", response.data);
                 console.log("added new post: ", post);

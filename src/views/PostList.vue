@@ -23,7 +23,7 @@ export default {
   created() {
     this.$store.dispatch("post/fetchPosts");
 
-    PostService.getPosts2()
+    PostService.getPosts()
       .then((response) => {
         console.log("get request from spring server: ", response.data);
       })
