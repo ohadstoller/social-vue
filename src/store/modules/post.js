@@ -17,6 +17,10 @@ export const mutations = {
     SET_POST(state, post) {
         state.post = post
     },
+    REMOVE_POST: (state, payload) => {
+        const i = state.posts.map(post => post.id).indexOf(payload);
+        state.posts.splice(i, 1);
+    }
 
 }
 export const actions = {
@@ -53,6 +57,21 @@ export const actions = {
                 commit("SET_POST", response.data);
             });
         }
+    },
+    deletePost({ commit }, id) {
+        return PostService.deletePostApi(id).then(
+            response => {
+                console.log("was the post deleted: ", response.data);
+                commit("REMOVE_POST", id);
+            }
+        ).then(() => {
+            console.log('hello')
+
+        }
+
+
+        )
+
     }
 }
 

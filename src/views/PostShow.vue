@@ -2,11 +2,13 @@
   <div>
     <div class="post-card -shadow">
       <h4 class="title">{{ post.content }}</h4>
-      <b class="title">Wrriten by {{ post.name }}</b> <span> </span>
+      Written by {{ post.name }} | Feeling {{ post.feeling.toLowerCase() }}
+      <br />
       <BaseIcon name="message-circle" width="14" height="14" />
       <span>{{ post.comments ? post.comments.length : 0 }} comments</span>
       <br />
       <span class="dateTime">{{ post.dateTime }}</span>
+      <div><button v-on:click="deletePost()">Delete</button></div>
     </div>
   </div>
 </template>
@@ -23,7 +25,15 @@ export default {
   computed: mapState({
     post: (state) => state.post.post,
   }),
-  methods: mapActions("post", ["fetchPost"]),
+  methods: {
+    async deletePost() {
+      console.log("deleted post with id, ", this.id);
+      await this.$store.dispatch("post/deletePost", this.id);
+      await this.$router.push({ name: "post-list" });
+    },
+
+    ...mapActions("post", ["fetchPost"]),
+  },
 };
 </script>
 

@@ -35,6 +35,9 @@ export default {
 
   postPost2(post) {
     return apiClient2.post('/posts', post)
+  },
+  deletePostApi(id) {
+    return apiClient2.delete(`/posts/${id}`)
   }
 
 

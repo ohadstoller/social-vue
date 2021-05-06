@@ -62,6 +62,10 @@ export default {
         email: user.name,
         dateTime: Date(Date.now()).toString(),
         content: "",
+        comments: [
+          { commentContent: "comment content", commentAuthor: "Ohad" },
+          { commentContent: "comment content 2", commentAuthor: "Rami" },
+        ],
       };
     },
   },
