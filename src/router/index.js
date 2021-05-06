@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import PostCreate from "../views/PostCreate.vue";
+import UserCreate from "../views/UserCreate.vue";
 import PostList from "../views/PostList.vue";
 import PostShow from "../views/PostShow.vue";
 
@@ -22,6 +23,11 @@ const routes = [
     path: "/post/create",
     name: "post-create",
     component: PostCreate,
+  },
+  {
+    path: "/user",
+    name: "user",
+    component: UserCreate,
   },
 ];
 

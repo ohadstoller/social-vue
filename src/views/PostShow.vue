@@ -2,8 +2,10 @@
   <div>
     <div class="post-card -shadow">
       <h4 class="title">{{ post.title }}</h4>
-      <h4 class="title">{{ post.user.name }}</h4>
-      <div class="eyebrow">Time {{ post.time }} | Date {{ post.date }}</div>
+      <p>Wrriten by {{ post.user.name }}</p>
+      <h4 class="title">{{ post.content }}</h4>
+
+      <!-- <div class="eyebrow">Time {{ post.time }} | Date {{ post.date }}</div> -->
       <BaseIcon name="message-circle" width="14" height="14" />
       <!--      <span>{{ post.comments.length ? post.comments.length : 0 }} comments</span>-->
     </div>

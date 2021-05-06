@@ -20,26 +20,6 @@
         <label>Description</label>
         <input v-model="post.content" type="text" placeholder="Add a content" />
       </div>
-      <h3>Where is your post?</h3>
-      <div class="field">
-        <label>Location</label>
-        <input
-          v-model="post.location"
-          type="text"
-          placeholder="Add a location"
-        />
-      </div>
-      <h3>When is your post?</h3>
-      <div class="field">
-        <label>Date</label>
-        <!--        <datepicker v-model="post.date" placeholder="Select a date"/>-->
-      </div>
-      <div class="field">
-        <label>Select a time</label>
-        <select v-model="post.time">
-          <option v-for="time in times" :key="time">{{ time }}</option>
-        </select>
-      </div>
       <input type="submit" class="button -fill-gradient" value="Submit" />
     </form>
   </div>
@@ -47,23 +27,16 @@
 
 <script>
 export default {
-  components: {},
   data() {
-    const times = [];
-    for (let i = 1; i <= 24; i++) {
-      times.push(i + ":00");
-    }
     return {
       post: this.createFreshPostObject(),
-      times,
       feelings: this.$store.state.feelings,
-      // feelings: ["Happy", "Sad", "Hopeful"]
     };
   },
   methods: {
     createPost() {
       this.$store
-        .dispatch("createPost", this.post)
+        .dispatch("post/createPost", this.post)
         .then(() => {
           this.$router.push({
             name: "post-show",
@@ -83,14 +56,10 @@ export default {
       const id = Math.floor(Math.random() * 10000000);
       return {
         id: id,
-        // feeling: "",
+        feeling: "",
         user: user,
         title: "",
         content: "",
-        // location: "",
-        // date: "",
-        // time: "",
-        // attendees: []
       };
     },
   },

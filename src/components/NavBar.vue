@@ -3,7 +3,8 @@
     <router-link to="/" class="brand">Social Feed</router-link>
     <nav>
       <router-link :to="{ name: 'post-list' }">Feed</router-link> |
-      <router-link :to="{ name: 'post-create' }">New Post</router-link>
+      <router-link :to="{ name: 'post-create' }">New Post</router-link> |
+      <router-link :to="{ name: 'user' }">Set User</router-link>
     </nav>
   </div>
 </template>
@@ -20,7 +21,7 @@ export default {};
   height: 60px;
 }
 .nav > .brand {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 1.5em;
   /*color: #39b982;*/
