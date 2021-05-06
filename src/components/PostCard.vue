@@ -10,7 +10,7 @@
       <BaseIcon name="message-circle" width="14" height="14" />
       <span>{{ post.comments ? post.comments.length : 0 }} comments</span>
       <br />
-      <span class="dateTime">{{ post.dateTime }}</span>
+      <span class="dateTime">{{ post.dateTime.slice(0, 28) }}</span>
     </div>
   </router-link>
 </template>

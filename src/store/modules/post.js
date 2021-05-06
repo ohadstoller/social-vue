@@ -30,19 +30,11 @@ export const actions = {
             commit("SET_POSTS", response.data));
     },
 
+
     createPost({ commit }, post) {
-        return PostService.postPost(post).then(
-            () => {
-                console.log("added new post: ", post);
-                commit("ADD_POST", post);
-            }
-        );
-    },
-    createPost2({ commit }, post) {
         return PostService.postPost(post).then(
             (response) => {
                 console.log("New req data: ", response.data);
-                console.log("added new post: ", post);
                 commit("ADD_POST", post);
             }
         );
@@ -64,14 +56,7 @@ export const actions = {
                 console.log("was the post deleted: ", response.data);
                 commit("REMOVE_POST", id);
             }
-        ).then(() => {
-            console.log('hello')
-
-        }
-
-
         )
-
     }
 }
 

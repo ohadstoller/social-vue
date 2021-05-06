@@ -37,7 +37,7 @@ export default {
     createPost() {
       console.log("dispatching a post, ", this.post);
       this.$store
-        .dispatch("post/createPost2", this.post)
+        .dispatch("post/createPost", this.post)
         .then(() => {
           this.$router.push({
             name: "post-show",

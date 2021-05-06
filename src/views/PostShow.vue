@@ -7,8 +7,13 @@
       <BaseIcon name="message-circle" width="14" height="14" />
       <span>{{ post.comments ? post.comments.length : 0 }} comments</span>
       <br />
-      <span class="dateTime">{{ post.dateTime }}</span>
-      <div><button v-on:click="deletePost()">Delete</button></div>
+      <span class="dateTime">{{ post.dateTime.slice(0, 28) }}</span>
+      <div>
+        <div>
+          <br />
+          <button class="button" v-on:click="deletePost()">Delete</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
