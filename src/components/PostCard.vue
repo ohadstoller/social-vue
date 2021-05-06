@@ -1,13 +1,13 @@
 <template>
-
-
-  <router-link class="post-link" :to="{name: 'post-show', params: {id: post.id}}">
+  <router-link
+    class="post-link"
+    :to="{ name: 'post-show', params: { id: post.id } }"
+  >
     <div class="post-card -shadow">
-
-      <h4 class="title"> {{ post.title }}</h4>
-<!--      <div class="eyebrow"> Time {{ post.time }} | Date {{ post.date }}</div>-->
+      <h4 class="title">{{ post.title }}</h4>
+      <!--      <div class="eyebrow"> Time {{ post.time }} | Date {{ post.date }}</div>-->
       <BaseIcon name="message-circle" width="14" height="14" />
-<!--      <span>{{ post.comments.length ? post.comments.length : 0 }} comments</span>-->
+      <span>{{ post.comments ? post.comments.length : 0 }} comments</span>
     </div>
   </router-link>
 </template>
@@ -15,11 +15,9 @@
 <script>
 export default {
   props: {
-    post: Object
-  }
-
+    post: Object,
+  },
 };
-
 </script>
 
 <style scoped>

@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="post-card -shadow">
-      <h4 class="title">{{ post.title }}</h4>
-      <p>Wrriten by {{ post.user.name }}</p>
-      <h4 class="title">{{ post.content }}</h4>
+      <h3 class="title">{{ post.title }}</h3>
+      <b class="title">Wrriten by {{ post.user.name }}</b> <span> </span>
+      <BaseIcon name="message-circle" width="14" height="14" />
+      <span>{{ post.comments ? post.comments.length : 0 }} comments</span>
+      <div class="title">{{ post.content }}</div>
 
       <!-- <div class="eyebrow">Time {{ post.time }} | Date {{ post.date }}</div> -->
-      <BaseIcon name="message-circle" width="14" height="14" />
-      <!--      <span>{{ post.comments.length ? post.comments.length : 0 }} comments</span>-->
     </div>
   </div>
 </template>
