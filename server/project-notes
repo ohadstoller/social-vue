@@ -1,0 +1,10 @@
+--------> Notes
+
+1. id LONG
+2. author String
+3. date-time DATETIME/ String
+4. feeling/activity JSON/ Object
+5. Content String
+6. private Boolean
+
+

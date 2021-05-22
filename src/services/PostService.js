@@ -19,7 +19,7 @@ export default {
   postPost(post) {
     return apiClient.post('/posts', post)
   },
-  deletePostApi(id) {
+  deletePostRequest(id) {
     return apiClient.delete(`/posts/${id}`)
   }
 

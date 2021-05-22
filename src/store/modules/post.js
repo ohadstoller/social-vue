@@ -18,8 +18,8 @@ export const mutations = {
         state.post = post
     },
     REMOVE_POST: (state, payload) => {
-        const i = state.posts.map(post => post.id).indexOf(payload);
-        state.posts.splice(i, 1);
+        const index = state.posts.map(post => post.id).indexOf(payload);
+        state.posts.splice(index, 1);
     }
 
 }
@@ -51,7 +51,7 @@ export const actions = {
         }
     },
     deletePost({ commit }, id) {
-        return PostService.deletePostApi(id).then(
+        return PostService.deletePostRequest(id).then(
             response => {
                 console.log("was the post deleted: ", response.data);
                 commit("REMOVE_POST", id);

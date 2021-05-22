@@ -21,3 +21,11 @@ export const actions = {
     },
 
 }
+
+export const getters = {
+    getUser: () => {
+        return (state.user.name)
+    }
+        
+    
+}

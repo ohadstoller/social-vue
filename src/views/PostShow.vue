@@ -32,7 +32,6 @@ export default {
   }),
   methods: {
     async deletePost() {
-      console.log("deleted post with id, ", this.id);
       await this.$store.dispatch("post/deletePost", this.id);
       await this.$router.push({ name: "post-list" });
     },

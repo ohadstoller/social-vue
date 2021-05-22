@@ -30,7 +30,6 @@ export default {
         console.log("You must pick a name first");
       } else {
         this.$store.dispatch("user/createUser", this.newUser);
-
         this.user = this.newUser;
       }
     },

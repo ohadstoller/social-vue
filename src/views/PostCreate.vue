@@ -7,15 +7,6 @@
           {{ feeling }}
         </option>
       </select>
-      <!-- <h3>Name & describe your post</h3>
-      <div class="field">
-        <label>Title</label>
-        <input
-          v-model="post.content"
-          type="text"
-          placeholder="Add an post title"
-        />
-      </div> -->
       <div class="field">
         <label>Description</label>
         <input v-model="post.content" type="text" placeholder="Add a content" />
